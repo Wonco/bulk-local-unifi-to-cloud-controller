@@ -49,7 +49,7 @@ def match_macs(scanned_output):
     for dictionary in scanned_output:
         for key, value in dictionary.items():
             #list of MAC OUIs linked to Ubqiti Inc on IEEE website 'https://standards-oui.ieee.org/oui/oui.txt'
-            matched_ubiquiti_macs = re.findall(r"""(((24[-:]?5a[-:]?4c|60[-:]?22[-:]?32|e4[-:]?38[-:]?83|
+            matched_ubiquiti_macs = re.findall(r"""((24[-:]?5a[-:]?4c|60[-:]?22[-:]?32|e4[-:]?38[-:]?83|
             f0[-:]?9f[-:]?c2|80[-:]?2a[-:]?a8|78[-:]?8a[-:]?20|74[-:]?83[-:]?c2|e0[-:]?63[-:]?da|78[-:]?45[-:]?58|
             ac[-:]?8b[-:]?a9|9c[-:]?05[-:]?d6|28[-:]?70[-:]?4e|04[-:]?18[-:]?d6|24[-:]?a4[-:]?3c|44[-:]?d9[-:]?e7|
             d0[-:]?21[-:]?f9|70[-:]?a7[-:]?41|94[-:]?2a[-:]?6f|f4[-:]?e2[-:]?c6|d8[-:]?b3[-:]?70|b4[-:]?fb[-:]?e4|
