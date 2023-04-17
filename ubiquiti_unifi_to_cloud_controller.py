@@ -46,12 +46,17 @@ ubiquiti_devices = {}
 
 
 def match_macs(scanned_output):
-    for dictionary in scanned_output:
-        for key, value in dictionary.items():
-            #list of MAC OUIs linked to Ubqiti Inc on IEEE website 'https://standards-oui.ieee.org/oui/oui.txt'
-            matched_ubiquiti_macs = re.findall(r"((24[-:]?5a[-:]?4c|60[-:]?22[-:]?32|e4[-:]?38[-:]?83|f0[-:]?9f[-:]?c2|80[-:]?2a[-:]?a8|78[-:]?8a[-:]?20|74[-:]?83[-:]?c2|e0[-:]?63[-:]?da|78[-:]?45[-:]?58|ac[-:]?8b[-:]?a9|9c[-:]?05[-:]?d6|28[-:]?70[-:]?4e|04[-:]?18[-:]?d6|24[-:]?a4[-:]?3c|44[-:]?d9[-:]?e7|d0[-:]?21[-:]?f9|70[-:]?a7[-:]?41|94[-:]?2a[-:]?6f|f4[-:]?e2[-:]?c6|d8[-:]?b3[-:]?70|b4[-:]?fb[-:]?e4|68[-:]?72[-:]?51|fc[-:]?ec[-:]?da|00[-:]?15[-:]?6d|00[-:]?27[-:]?22|dc[-:]?9f[-:]?db|18[-:]?e8[-:]?29|74[-:]?ac[-:]?b9|f4[-:]?92[-:]?bf|68[-:]?d7[-:]?9a)([-:]?[0-9a-fA-F]{2}){3})", key, re.I)
-            for line in matched_ubiquiti_macs:
-                ubiquiti_devices[key] = value
+    ubiquiti_ouis = ('00156d', '002722', '0418d6', '18e829', '245a4c', '24a43c', 
+                    '28704e', '44d9e7', '602232', '687251', '70a741', '7483c2', 
+                    '784558', '788a20', '802aa8', '9c05d6', 'ac8ba9', 'b4fbe4', 
+                    'd021f9', 'd8b370', 'dc9fdb', 'e063da', 'e43883', 'f09fc2', 
+                    'f492bf', 'f4e2c6', 'fcecda', '74acb9', '942a6f', '68d79a',)
+
+    stripper = lambda x: x.replace(":", "").replace("-", "")
+    for arp_response in scanned_output:
+        for mac, ip in arp_response.items():
+            if stripper(mac).startswith(ubiquiti_ouis):
+                ubiquiti_devices[mac] = ip
 
 
 def system_exit():
@@ -83,7 +88,7 @@ def ssh_conn(mac, ip):
         if connection:
             print(f"MAC: {mac}, IP: {ip} is completed, it was started at {date_time}")
         else:
-            print(f'***FAILED*** MAC: {mac}, IP: {ip} not default user/pass. Factory reset unifi device and try again.')
+            print(f'***FAILED*** MAC: {mac}, IP: {ip} not default user/pass. Factory reset Unifi device and try again.')
             time.sleep(2)
     except paramiko.ssh_exception.BadHostKeyException as e:
         print(f"Device, {mac}, {ip}, host key could not be verified: {e}")
@@ -116,22 +121,23 @@ def ssh_thread(ubiquiti_devices):
         trd.start()
         thread_instance.put(trd)
         time.sleep(0.08)
-    ## Below - for not using queue
-    # for thread in thread_instance:
-    #     thread.join()
 
 
-allowed_input = {"Y", "N", "R"}
+allowed_input = {"Y", "N", "R", "P"}
 
 
 def handle_input():
     while True:
-        choice = input(f'\n{len(ubiquiti_devices)} devices found on subnet {subnet_regex[0]}1/24\nY to set-inform all devices to cloud controller, R to rescan or N to exit: ').upper()
+        choice = input(f'\n{len(ubiquiti_devices)} devices found on subnet {subnet_regex[0]}1/24\nY to set-inform all devices to cloud controller, R to rescan, P to print MAC : IP or N to exit: ').upper()
         if choice not in allowed_input:
             print("Please choose a valid option...")
         elif choice == "N":
             print("Exiting script...")
             sys.exit()
+        elif choice == "P":
+            for mac, ip in ubiquiti_devices.items():
+                print(f'Found MAC: {mac}, IP: {ip} ')
+            handle_input()
         elif choice == "R":
             print("\nRescanning network...")
             scanned_output = scan(get_ip())
@@ -144,9 +150,7 @@ def handle_input():
         elif choice == "Y":
             ssh_thread(ubiquiti_devices)
             time.sleep(3.5)
-            ## unhash below x2 lines for sequential instead of threaded
-            # for host in ubiquiti_devices:
-            #     ssh_conn(host)
+
             if len(failed_devices) == 1:
                 print(f'\nThere was {len(failed_devices)} device that failed:')
             else:
