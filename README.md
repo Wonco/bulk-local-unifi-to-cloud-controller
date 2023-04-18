@@ -27,6 +27,8 @@ Note that the script currently uses default username and password credentials fo
 
 Contributions and feedback are welcome.
 
+**How To with Windows** (works on MAC & Linux also but not covered in how to)
+
                                               .                                 
                                      *//////(((((((((((*                        
                                  /////(((((((((((((#######(                     
