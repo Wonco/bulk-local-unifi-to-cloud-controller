@@ -1,6 +1,6 @@
 # bulk-local-unifi-to-cloud-controller
 
-Readme File for Unifi Device Discovery and Configuration Script
+Readme File for bulk SSH local lan to unifi controller
 
 This script is designed to discover Unifi devices on a network and configure their inform settings for management by a Unifi controller.
 
@@ -37,15 +37,23 @@ Open cmd prompt and cd into the folder you just created.
 
 Run git clone on this repo. git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
 
-cd into the new cloned folder.
+Open file explorer and browse to ne cloned folder.
 
-run the .py with this command: python ubiquiti_unifi_to_cloud_controller.py
+Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
 
-if error paramiko, enter the command: pip install paramiko
+Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing.
 
-if error scapy, enter the command: pip install scapy
+Go back to cmd and cd into the new cloned folder.
 
-try and run the .py again with: python ubiquiti_unifi_to_cloud_controller.py
+run the .py with this command: python local_lan_to_unifi_controller.py
+
+If error paramiko, enter the command: pip install paramiko
+
+If error scapy, enter the command: pip install scapy
+
+Try and run the .py again with: python local_lan_to_unifi_controller.py
+
+Follow prompts in script, if no Ubiquiti OUIs found, it will not run and notify you it didn't find any.
 
 
 
