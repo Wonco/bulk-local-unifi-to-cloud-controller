@@ -35,9 +35,9 @@ Once that is installed, create a folder location where you want to store the scr
 
 Open cmd prompt and cd into the folder you just created.
 
-Run git clone on this repo. git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
+Run git clone on this repo: git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
 
-Open file explorer and browse to ne cloned folder.
+Open file explorer and browse to the cloned folder.
 
 Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
 
@@ -45,7 +45,7 @@ Find the function ssh_connect and inside it find the line with variable "command
 
 Go back to cmd and cd into the new cloned folder.
 
-run the .py with this command: python local_lan_to_unifi_controller.py
+Run the .py with this command: python local_lan_to_unifi_controller.py
 
 If error paramiko, enter the command: pip install paramiko
 
