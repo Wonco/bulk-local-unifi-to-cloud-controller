@@ -32,7 +32,7 @@ Contributions and feedback are welcome.
 1, Go to microsoft store and download the latest python version (currently 3.11 as of readme creation)
 
 2, Once that is installed, create a folder location where you want to store the script.
-![](images/create_folder_location.png)
+![](IMAGES/create_folder_location.PNG)
 3, Open cmd prompt and cd into the folder you just created.
 
 4, Run git clone on this repo: git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
