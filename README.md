@@ -29,31 +29,31 @@ Contributions and feedback are welcome.
 
 **How To with Windows** (works on MAC & Linux also but not covered in how to)
 
-Got to microsoft store and download the latest python version (currently 3.11)
+1, Go to microsoft store and download the latest python version (currently 3.11 as of readme creation)
 
-Once that is installed, create a folder location where you want to store the script.
+2, Once that is installed, create a folder location where you want to store the script.
+![](images/create_folder_location.png)
+3, Open cmd prompt and cd into the folder you just created.
 
-Open cmd prompt and cd into the folder you just created.
+4, Run git clone on this repo: git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
 
-Run git clone on this repo: git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
+5, Open file explorer and browse to the cloned folder.
 
-Open file explorer and browse to the cloned folder.
+6, Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
 
-Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
+7, Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing.
 
-Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing.
+8, Go back to cmd and cd into the new cloned folder.
 
-Go back to cmd and cd into the new cloned folder.
+9, Run the .py with this command: python local_lan_to_unifi_controller.py
 
-Run the .py with this command: python local_lan_to_unifi_controller.py
+10, If error paramiko, enter the command: pip install paramiko
 
-If error paramiko, enter the command: pip install paramiko
+11, If error scapy, enter the command: pip install scapy
 
-If error scapy, enter the command: pip install scapy
+12, Try and run the .py again with: python local_lan_to_unifi_controller.py
 
-Try and run the .py again with: python local_lan_to_unifi_controller.py
-
-Follow prompts in script, if no Ubiquiti OUIs found, it will not run and notify you it didn't find any.
+13, Follow prompts in script, if no Ubiquiti OUIs found, it will not run and notify you it didn't find any.
 
 
 
