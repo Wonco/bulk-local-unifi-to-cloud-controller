@@ -29,6 +29,26 @@ Contributions and feedback are welcome.
 
 **How To with Windows** (works on MAC & Linux also but not covered in how to)
 
+Got to microsoft store and download the latest python version (currently 3.11)
+
+Once that is installed, create a folder location where you want to store the script.
+
+Open cmd prompt and cd into the folder you just created.
+
+Run git clone on this repo. git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
+
+cd into the new cloned folder.
+
+run the .py with this command: python ubiquiti_unifi_to_cloud_controller.py
+
+if error paramiko, enter the command: pip install paramiko
+
+if error scapy, enter the command: pip install scapy
+
+try and run the .py again with: python ubiquiti_unifi_to_cloud_controller.py
+
+
+
                                               .                                 
                                      *//////(((((((((((*                        
                                  /////(((((((((((((#######(                     
