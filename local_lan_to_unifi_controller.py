@@ -50,7 +50,7 @@ def match_macs(scanned_output):
                     '28704e', '44d9e7', '602232', '687251', '70a741', '7483c2', 
                     '784558', '788a20', '802aa8', '9c05d6', 'ac8ba9', 'b4fbe4', 
                     'd021f9', 'd8b370', 'dc9fdb', 'e063da', 'e43883', 'f09fc2', 
-                    'f492bf', 'f4e2c6', 'fcecda', '74acb9', '942a6f', '68d79a',)
+                    'f492bf', 'f4e2c6', 'fcecda', '74acb9', '942a6f', '68d79a')
 
     stripper = lambda x: x.replace(":", "").replace("-", "")
     for arp_response in scanned_output:
