@@ -128,6 +128,8 @@ allowed_input = {"Y", "N", "R", "P"}
 
 def handle_input():
     while True:
+        for mac, ip in ubiquiti_devices.items():
+            print("Found MAC: {}, IP: {} ".format(mac, ip))
         choice = input(f'\n{len(ubiquiti_devices)} devices found on subnet {subnet_regex[0]}1/24\nY to set-inform all devices to cloud controller, R to rescan, P to print MAC : IP or N to exit: ').upper()
         if choice not in allowed_input:
             print("Please choose a valid option...")
@@ -149,14 +151,14 @@ def handle_input():
             handle_input()
         elif choice == "Y":
             ssh_thread(ubiquiti_devices)
-            time.sleep(3.5)
+            time.sleep(20)
 
             if len(failed_devices) == 1:
                 print(f'\nThere was {len(failed_devices)} device that failed:')
             else:
                 print(f'\nThere were {len(failed_devices)} devices that failed:')
             for mac, ip in failed_devices.items():
-                print(f'***FAILED*** MAC: {mac}, IP: {ip} likely not default user/pass. Factory reset unifi device without internet access and try again.')
+                print(f'***FAILED*** MAC: {mac}, IP: {ip} likely not default user/pass. Factory reset unifi device without internet access (WAN) and try again.')
             system_exit()
 
             
