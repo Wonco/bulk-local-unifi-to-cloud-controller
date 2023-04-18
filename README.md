@@ -21,7 +21,7 @@ The script includes the following notable functions:
 - ssh_thread(ubiquiti_devices) - multi-threads the SSH connections.
 
 
-After discovering and configuring devices, the script prompts the user to enter "exit" to quit. The script also records any devices that failed to connect or authenticate.
+After discovering and configuring devices, you're prompted to enter "exit" to quit. This is to ensure you have time to view the failed devices. The script outputs any devices that failed to connect or authenticate.
 
 Note that the script currently uses default username and password credentials for Unifi devices (ubnt:ubnt). The "set-inform" is currently blank and needs to be change to your desired location. To customize these settings, edit the ssh_connect() function accordingly, specifically the value of 'command' for the "set-inform".
 
