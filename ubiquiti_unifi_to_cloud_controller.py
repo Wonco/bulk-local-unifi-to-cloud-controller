@@ -67,8 +67,8 @@ def system_exit():
         sys.exit()
 
 
-## ssh_conn - function to ssh into each ip and set inform unifi devices.
-def ssh_conn(mac, ip):
+## ssh_connect - function to ssh into each ip and set inform unifi devices.
+def ssh_connect(mac, ip):
     port = 22
     username = "ubnt"
     password = "ubnt"
@@ -116,7 +116,7 @@ failed_devices = {}
 def ssh_thread(ubiquiti_devices):
     thread_instance = queue.Queue()
     for mac, ip in ubiquiti_devices.items():
-        trd = threading.Thread(target=ssh_conn, args=(mac, ip,))
+        trd = threading.Thread(target=ssh_connect, args=(mac, ip,))
         trd.setDaemon = True
         trd.start()
         thread_instance.put(trd)
