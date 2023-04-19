@@ -27,35 +27,48 @@ Note that the script currently uses default username and password credentials fo
 
 Contributions and feedback are welcome.
 
-**How To with Windows** (works on MAC & Linux also but not covered in how to)
+**How to install and run on Windows** (works on MAC & Linux also but not covered in this how to)
 
 1, Go to microsoft store and download the latest python version (currently 3.11 as of readme creation)
 
 2, Once that is installed, create a folder location where you want to store the script.
 ![](IMAGES/create_folder_location.PNG)
-3, Open cmd prompt and cd into the folder you just created.
 
-4, Run git clone on this repo: git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git
+3, Open cmd prompt and cd into the folder you just created.
+![](IMAGES/cd_directory_1.PNG)
+
+4, Run git clone on this repo: ```git clone https://github.com/Wonco/bulk-local-unifi-to-cloud-controller.git```
+![](IMAGES/cd_directory_2.PNG)
 
 5, Open file explorer and browse to the cloned folder.
+![](IMAGES/browse_to_cloned.PNG)
 
 6, Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
+![](IMAGES/edit_py.PNG)
 
 7, Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing.
+![](IMAGES/code_change.png)
 
 8, Go back to cmd and cd into the new cloned folder.
+![](IMAGES/cd_new_directory.PNG)
 
-9, Run the .py with this command: python local_lan_to_unifi_controller.py
+9, Run the .py with this command: ```python local_lan_to_unifi_controller.py```
+![](IMAGES/run_the_py.PNG)
 
-10, If error paramiko, enter the command: pip install paramiko
+10, If error paramiko, enter the command: ```pip install paramiko```
+![](IMAGES/paramiko_install.PNG)
 
-11, If error scapy, enter the command: pip install scapy
+11, If error scapy, enter the command: ```pip install scapy```
+![](IMAGES/scapy_install.PNG)
 
-12, Try and run the .py again with: python local_lan_to_unifi_controller.py
+12, Try and run the .py again with: ```python local_lan_to_unifi_controller.py```
+![](IMAGES/run_the_py.PNG)
 
 13, Follow prompts in script, if no Ubiquiti OUIs found, it will not run and notify you it didn't find any.
+![](IMAGES/example_of_working.PNG)
 
-
+14, GIF of script
+![](IMAGES/local_lan_unifi_to_controller_gif.gif)
 
                                               .                                 
                                      *//////(((((((((((*                        
