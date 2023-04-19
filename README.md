@@ -27,7 +27,7 @@ Note that the script currently uses default username and password credentials fo
 
 Contributions and feedback are welcome.
 
-**How to install and run on Windows** (works on MAC & Linux also but not covered in this how to)
+## **How to install and run on Windows** (works on MAC & Linux also but not covered in this how to)
 
 1, Go to microsoft store and download the latest python version (currently 3.11 as of readme creation)
 
