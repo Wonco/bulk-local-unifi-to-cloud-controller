@@ -9,7 +9,7 @@ The script utilizes Python 3 with the following dependencies:
 - Paramiko
 - Scapy
 
-To run the script, clone the repository and execute the Python script. The script will begin by discovering devices on the local network, matching the manufacturer's MAC address prefix to Unifi devices, and then configuring their inform settings using SSH.
+To run the script, clone the repository and execute the Python script. The script will begin by discovering devices on the local network, matching the manufacturer's MAC address prefix (OUIs) to Unifi devices, and then configuring their inform settings using SSH.
 
 
 The script includes the following notable functions:
