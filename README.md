@@ -9,7 +9,7 @@ The script utilizes Python 3 with the following dependencies:
 - Paramiko
 - Scapy
 
-To run the script, clone the repository and execute the Python script. The script will begin by discovering devices on the local network, matching the manufacturer's MAC address prefix (OUIs) to Unifi devices, and then configuring their inform settings using SSH.
+To run the script, clone the repository and execute the Python script. The script will begin by discovering devices on the local network, matching the manufacturer's MAC address prefix (OUI) to Unifi devices, and then configuring their inform settings using SSH.
 
 
 The script includes the following notable functions:
@@ -23,7 +23,7 @@ The script includes the following notable functions:
 
 After discovering and configuring devices, you're prompted to enter "exit" to quit. This is to ensure you have time to view the failed devices. The script outputs any devices that failed to connect or authenticate.
 
-Note that the script currently uses default username and password credentials for Unifi devices (ubnt:ubnt). The "set-inform" is currently blank and needs to be change to your desired location. To customize these settings, edit the ssh_connect() function accordingly, specifically the value of 'command' for the "set-inform".
+Note that the script currently uses default username and password credentials for Unifi devices (ubnt:ubnt). The "set-inform" is currently blank and needs to be changed to your desired location. To customise these settings, edit the ssh_connect() function accordingly, specifically the value of 'command' for the "set-inform".
 
 Contributions and feedback are welcome.
 
