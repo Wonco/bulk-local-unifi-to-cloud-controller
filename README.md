@@ -46,7 +46,7 @@ Contributions and feedback are welcome.
 6, Right click local_lan_to_unifi_controller.py and open with (editor of your choice)
 ![](IMAGES/edit_py.PNG)
 
-7, Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing.
+7, Find the function ssh_connect and inside it find the line with variable "command" on it, this is where you set your desired controller location (ip or hostname). Make sure you save it before closing. e.g. ```set-inform examplehostname.com:8080``` or ```set-inform 10.2.15.254```
 ![](IMAGES/code_change.png)
 
 8, Go back to cmd and cd into the new cloned folder.
