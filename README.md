@@ -4,6 +4,8 @@ Readme File for bulk SSH local lan to unifi controller
 
 This script is designed to discover Unifi devices on a network and configure their inform settings for management by a Unifi controller.
 
+You may have to download NMAP (https://nmap.org/) If you don't already have it on your device.
+
 The script utilizes Python 3 with the following dependencies:
 
 - Paramiko
@@ -24,8 +26,6 @@ The script includes the following notable functions:
 After discovering and configuring devices, you're prompted to enter "exit" to quit. This is to ensure you have time to view the failed devices. The script outputs any devices that failed to connect or authenticate.
 
 Note that the script currently uses default username and password credentials for Unifi devices (ubnt:ubnt). The "set-inform" is currently blank and needs to be changed to your desired location. To customise these settings, edit the ssh_connect() function accordingly, specifically the value of 'command' for the "set-inform".
-
-You may also be required to download NMAP (https://nmap.org/) If you don't already have it on your device.
 
 Contributions and feedback are welcome.
 
